@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ServicoFormRequest;
+use App\Http\Requests\ServicoFormRequestUpdate;
 use App\Models\servico;
 use Illuminate\Http\Request;
 
@@ -84,7 +85,7 @@ public function excluir($id){
     ]);
 }
 
-public function update(Request $request){
+public function update(ServicoFormRequestUpdate $request){
     $servico = servico::find($request->id);
 
     if(!isset($servico)){
@@ -97,8 +98,8 @@ public function update(Request $request){
     if(isset($request->nome)){
         $servico->nome = $request->nome;
     }
-    if(isset($request->descrisao)){
-        $servico->descrisao = $request->descrisao;
+    if(isset($request->descricao)){
+        $servico->descricao = $request->descrcao;
     }
     if(isset($request->duracao)){
         $servico->duracao = $request->duracao;
