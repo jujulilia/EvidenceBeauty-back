@@ -14,7 +14,7 @@ route::delete('delete/{id}', [ServicoController::class, 'excluir']);
 route::put('update', [ServicoController::class, 'update']);
 
 //clientes
-route::post('cliente', [ClienteController::class, 'clientes']);
+route::post('clientes', [ClienteController::class, 'clientes']);
 route::get('nome', [ClienteController::class, 'pesquisarPorNome']);
 route::get('cpf', [ClienteController::class, 'pesquisarPorCpf']);
 route::get('celular', [ClienteController::class, 'pesquisarPorCelular']);
