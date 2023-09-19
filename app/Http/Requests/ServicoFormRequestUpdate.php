@@ -30,6 +30,7 @@ class ServicoFormRequestUpdate extends FormRequest
             'preco' => 'required|decimal:2',
         ];
     }
+
     public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
