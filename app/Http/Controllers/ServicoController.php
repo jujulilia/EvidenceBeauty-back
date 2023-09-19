@@ -20,7 +20,7 @@ class ServicoController extends Controller
 
         return response()->json([
             "success" => true,
-            "message" => "usuario cadastrado com sucesso",
+            "message" => "Serviço cadastrado com sucesso",
             "data" => $servico
         ], 200);
 }
@@ -60,7 +60,7 @@ public function pesquisarPorId($id){
     if($servico == null){
         return response()->json([
             'status'=> false,
-            'message' => "usuario não encontrado"
+            'message' => "Serviço não encontrado"
         ]);     
     }
     return response()->json([
@@ -74,14 +74,14 @@ public function excluir($id){
     if(!isset($servico)){
         return response()->json([
             "status" => false,
-            "message" => "usuario não encontrado"
+            "message" => "Serviço não encontrado"
         ]);
     }
     $servico->delete();
 
     return response()->json([
         'status' => false,
-        'message' => 'usuario excluido com sucesso'
+        'message' => 'Serviço excluido com sucesso'
     ]);
 }
 
@@ -91,7 +91,7 @@ public function update(ServicoFormRequestUpdate $request){
     if(!isset($servico)){
         return response()->json([
             "status" => false,
-            "message" => "usuario não encontrado"
+            "message" => "Serviço não encontrado"
         ]);
     }
 
@@ -99,7 +99,7 @@ public function update(ServicoFormRequestUpdate $request){
         $servico->nome = $request->nome;
     }
     if(isset($request->descricao)){
-        $servico->descricao = $request->descrcao;
+        $servico->descricao = $request->descricao;
     }
     if(isset($request->duracao)){
         $servico->duracao = $request->duracao;
@@ -112,7 +112,7 @@ public function update(ServicoFormRequestUpdate $request){
 
     return response()->json([
         "status" => false,
-        "message" => "usuario atualizado"
+        "message" => "Serviço atualizado"
     ]);
 
 }
