@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ClienteFormRequestUpdate extends FormRequest
+class clienteFormRequestUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,12 +19,12 @@ class ClienteFormRequestUpdate extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
-            'nome' => 'required|max:120|min:5,'. $this->id,
+            'nome' => 'required|max:120|min:5' . $this->id,
             'celular' => 'required|max:11|min:10|unique:clientes,celular',
             'email' => 'required|email|unique:clientes,email',
             'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
@@ -55,8 +55,8 @@ class ClienteFormRequestUpdate extends FormRequest
             'nome.max' => 'o campo nome deve contar no maximo 120 caracteres',
             'nome.min' => 'o campo nome deve contar no minimo 5 caracteres',
             'celular.required' => 'o telefone é obrigatorio',
-            'celular.max' => 'o campo telefone deve contar no maximo 11 caracteres',
-            'celular.min' => 'o campo telefone deve contar no minimo 10 caracteres',
+            'celular.max' => 'o campo celular deve contar no maximo 11 caracteres',
+            'celular.min' => 'o campo celular deve contar no minimo 10 caracteres',
             'celular.unique' => 'celular já cadastrado no sistema',
             'email.required' => 'o email é obrigatorio',
             'email.email' => 'formato de email invalido',
@@ -65,8 +65,8 @@ class ClienteFormRequestUpdate extends FormRequest
             'cpf.max' => 'o campo cpf deve contar no maximo 11 caracteres',
             'cpf.min' => 'o campo cpf deve contar no minimo 11 caracteres',
             'cpf.unique' => 'cpf ja cadastrado no sistema',
-            'dataNascimento.required' => 'O campo duracao é obrigatorio',
-            'dataNascimento.date' => 'O campo duração deve ter apenas numeros',
+            'dataNascimento.required' => 'O campo data de nascimento é obrigatorio',
+            'dataNascimento.date' => 'O campo data de nascimento deve ter apenas numeros',
             'cidade.required' => 'o campo cidade é obrigatorio',
             'cidade.max' => 'o campo cidade deve contar no maximo 120 caracteres',
             'estado.required' => 'o campo estado é obrigatorio',

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\clientecontroller;
 use App\Http\Controllers\ServicoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,13 +15,13 @@ route::put('update', [ServicoController::class, 'update']);
 
 //clientes
 
-route::post('clientes', [ClienteController::class, 'clientes']);
-route::get('nome', [ClienteController::class, 'pesquisarPorNome']);
-route::get('cpf', [ClienteController::class, 'pesquisarPorCpf']);
-route::get('celular', [ClienteController::class, 'pesquisarPorCelular']);
-route::get('email', [ClienteController::class, 'pesquisarPorEmail']);
-route::delete('delete/{id}', [ClienteController::class, 'excluir']);
-route::put('update', [ClienteController::class, 'update']);
+route::post('clientes', [clientecontroller::class, 'clientes']);
+route::get('nome', [clientecontroller::class, 'pesquisarPorNome']);
+route::get('cpf', [clientecontroller::class, 'pesquisarPorCpf']);
+route::get('celular', [clientecontroller::class, 'pesquisarPorCelular']);
+route::get('email', [clientecontroller::class, 'pesquisarPorEmail']);
+route::delete('delete/{id}', [clientecontroller::class, 'excluir']);
+route::put('update', [clientecontroller::class, 'update']);
 
 
 
