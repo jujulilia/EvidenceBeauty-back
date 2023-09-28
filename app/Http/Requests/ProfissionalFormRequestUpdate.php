@@ -2,11 +2,11 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 
-class clienteFormRequestUpdate extends FormRequest
+class ProfissionalFormRequestUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,9 @@ class clienteFormRequestUpdate extends FormRequest
     {
         return [
             'nome' => 'required|max:120|min:5',
-            'celular' => 'required|max:11|min:10|unique:clientes,celular,'. $this->id,
-            'email' => 'required|email|unique:clientes,email,'. $this->id,
-            'cpf' => 'required|max:11|min:11|unique:clientes,cpf,' . $this->id,
+            'celular' => 'required|max:11|min:10|unique:clientes,celular',
+            'email' => 'required|email|unique:clientes,email',
+            'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
             'dataNascimento' => 'required|date', 
             'cidade' => 'required|max:120',
             'estado' => 'required|max:2|min:2',
@@ -38,6 +38,7 @@ class clienteFormRequestUpdate extends FormRequest
             'cep' => 'required|max:8|min:8',
             'complemento' => 'max:150',
             'senha' => 'required',
+            'salario' => 'required|decimal'
         ];
     }
 
@@ -83,9 +84,11 @@ class clienteFormRequestUpdate extends FormRequest
             'cep.required' => 'o campo cep é obrigatorio',
             'cep.max' => 'o campo cep deve contar no maximo 8 caracteres',
             'cep.min' => 'o campo cep deve contar no minimo 8 caracteres',
-            'complemento.required' => 'o campo complemento é obrigatorio',
             'complemento.max' => 'o campo complemento deve contar no maximo 150 caracteres',
-            'senha.required' => 'a senha obrigatorio'
+            'senha.required' => 'a senha obrigatorio',
+            'salario.required' => 'O campo salario é obrigatorio',
+            'salario.decimal' => 'O campo salario deve ter apenas numeros'
         ];
+    
     }
 }
