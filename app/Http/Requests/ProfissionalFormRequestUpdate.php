@@ -38,7 +38,7 @@ class ProfissionalFormRequestUpdate extends FormRequest
             'cep' => 'required|max:8|min:8',
             'complemento' => 'max:150',
             'senha' => 'required',
-            'salario' => 'required|decimal'
+            'salario' => 'required|decimal:2'
         ];
     }
 

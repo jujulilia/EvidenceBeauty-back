@@ -25,9 +25,9 @@ class ProfissionalFormRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:120|min:5',
-            'celular' => 'required|max:11|min:10|unique:clientes,celular',
-            'email' => 'required|email|unique:clientes,email',
-            'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
+            'celular' => 'required|max:11|min:10|unique:profissionals,celular',
+            'email' => 'required|email|unique:profissionals,email',
+            'cpf' => 'required|max:11|min:11|unique:profissionals,cpf',
             'dataNascimento' => 'required|date', 
             'cidade' => 'required|max:120',
             'estado' => 'required|max:2|min:2',
@@ -38,7 +38,7 @@ class ProfissionalFormRequest extends FormRequest
             'cep' => 'required|max:8|min:8',
             'complemento' => 'max:150',
             'senha' => 'required',
-            'salario' => 'required|decimal'
+            'salario' => 'required|decimal:2'
         ];
     }
 
@@ -55,7 +55,7 @@ class ProfissionalFormRequest extends FormRequest
             'nome.required' => 'o nome é obrigatorio',
             'nome.max' => 'o campo nome deve contar no maximo 120 caracteres',
             'nome.min' => 'o campo nome deve contar no minimo 5 caracteres',
-            'celular.required' => 'o telefone é obrigatorio',
+            'celular.required' => 'o celular é obrigatorio',
             'celular.max' => 'o campo celular deve contar no maximo 11 caracteres',
             'celular.min' => 'o campo celular deve contar no minimo 10 caracteres',
             'celular.unique' => 'celular já cadastrado no sistema',
