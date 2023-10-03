@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\clientecontroller;
 use App\Http\Controllers\Profissionalcontroller;
 use App\Http\Controllers\ServicoController;
@@ -7,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-//serviços
+//Serviços
 route::post('servicos', [ServicoController::class, 'servicos']);
 route::get('descricaoS', [ServicoController::class, 'pesquisarPorDescricao']);
 route::get('nomeS', [ServicoController::class, 'pesquisarPorNome']);
@@ -16,7 +17,7 @@ route::delete('deleteS/{id}', [ServicoController::class, 'excluir']);
 route::put('updateS', [ServicoController::class, 'update']);
 
 
-//clientes
+//Clientes
 
 route::post('clientes', [clientecontroller::class, 'clientes']);
 route::get('nomeC', [clientecontroller::class, 'pesquisarPorNome']);
@@ -35,3 +36,10 @@ route::get('celularP', [Profissionalcontroller::class, 'pesquisarPorCelular']);
 route::get('emailP', [Profissionalcontroller::class, 'pesquisarPorEmail']);
 route::delete('deleteP/{id}', [Profissionalcontroller::class, 'excluir']);
 route::put('updateP', [Profissionalcontroller::class, 'update']);
+
+
+//Agenda
+route::post('agenda', [AgendaController::class, 'agenda']);
+route::delete('deleteA/{id}', [AgendaController::class, 'excluir']);
+route::put('updateA', [AgendaController::class, 'update']);
+route::get('visualizar', [AgendaController::class, 'retornarTodos']);

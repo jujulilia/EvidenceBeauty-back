@@ -83,7 +83,6 @@ class clienteFormRequest extends FormRequest
             'cep.required' => 'o campo cep é obrigatorio',
             'cep.max' => 'o campo cep deve contar no maximo 8 caracteres',
             'cep.min' => 'o campo cep deve contar no minimo 8 caracteres',
-            'complemento.required' => 'o campo complemento é obrigatorio',
             'complemento.max' => 'o campo complemento deve contar no maximo 150 caracteres',
             'senha.required' => 'a senha obrigatorio'
         ];
