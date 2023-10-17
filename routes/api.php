@@ -42,4 +42,4 @@ route::put('updateP', [Profissionalcontroller::class, 'update']);
 route::post('agenda', [AgendaController::class, 'agenda']);
 route::delete('deleteA/{id}', [AgendaController::class, 'excluir']);
 route::put('updateA', [AgendaController::class, 'update']);
-route::get('visualizar', [AgendaController::class, 'retornarTodos']);
+route::get('visualizarA', [AgendaController::class, 'retornarTodos']);
