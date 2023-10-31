@@ -16,7 +16,7 @@ class Profissionalcontroller extends Controller
             'celular'=> $request ->celular,
             'email'=> $request ->email,
             'cpf'=> $request ->cpf,
-            'dataNascimento'=> $request ->dataNascimento,
+            'dataDeNascimento'=> $request ->dataDeNascimento,
             'cidade'=> $request ->cidade,
             'estado'=> $request ->estado,
             'pais'=> $request ->pais,

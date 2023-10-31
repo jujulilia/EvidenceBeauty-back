@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\clientecontroller;
 use App\Http\Controllers\Profissionalcontroller;
 use App\Http\Controllers\ServicoController;
+use App\Models\servico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ route::get('nomeS', [ServicoController::class, 'pesquisarPorNome']);
 route::get('find/{id}', [ServicoController::class, 'pesquisarPorId']);
 route::delete('deleteS/{id}', [ServicoController::class, 'excluir']);
 route::put('updateS', [ServicoController::class, 'update']);
+route::get('visualizarS', [ServicoController::class, 'retornarTodos']);
 
 
 //Clientes
@@ -26,6 +28,7 @@ route::get('celularC', [clientecontroller::class, 'pesquisarPorCelular']);
 route::get('emailC', [clientecontroller::class, 'pesquisarPorEmail']);
 route::delete('deleteC/{id}', [clientecontroller::class, 'excluir']);
 route::put('updateC', [clientecontroller::class, 'update']);
+route::get('visualizarC', [clientecontroller::class, 'retornarTodos']);
 
 
 //Profissional
@@ -36,6 +39,7 @@ route::get('celularP', [Profissionalcontroller::class, 'pesquisarPorCelular']);
 route::get('emailP', [Profissionalcontroller::class, 'pesquisarPorEmail']);
 route::delete('deleteP/{id}', [Profissionalcontroller::class, 'excluir']);
 route::put('updateP', [Profissionalcontroller::class, 'update']);
+route::get('visualizarP', [Profissionalcontroller::class, 'retornarTodos']);
 
 
 //Agenda

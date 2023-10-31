@@ -15,7 +15,7 @@ class Profissional extends Model
         'celular',
         'email',
         'cpf',
-        'dataNascimento',
+        'dataDeNascimento',
         'cidade',
         'estado',
         'pais',
