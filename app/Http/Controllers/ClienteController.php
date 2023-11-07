@@ -39,15 +39,29 @@ class clientecontroller extends Controller
         $Cliente = cliente::all();
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente
+            'data'=> $Cliente
         ]);
     }
+    public function pesquisarPorId($id){
+        $Cliente = cliente::find($id);
+        if($Cliente == null){
+            return response()->json([
+                'status'=> false,
+                'message' => "Serviço não encontrado"
+            ]);     
+        }
+        return response()->json([
+            'status'=> true,
+            'data'=> $Cliente
+        ]);
+    }
+
     public function pesquisarPorNome(Request $request){
         $Cliente =  cliente::where('nome', 'like', '%'. $request->nome . '%')->get();
         if(count($Cliente) > 0){
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente
+            'data'=> $Cliente
         ]);
     }
     return response()->json([
@@ -61,7 +75,7 @@ class clientecontroller extends Controller
         if(count($Cliente) > 0){
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente 
+            'data'=> $Cliente 
         ]);
     }
     return response()->json([
@@ -74,7 +88,7 @@ class clientecontroller extends Controller
         if(count($Cliente) > 0){
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente
+            'data'=> $Cliente
         ]);
     }
     return response()->json([
@@ -87,7 +101,7 @@ class clientecontroller extends Controller
         if(count($Cliente) > 0){
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente
+            'data'=> $Cliente
         ]);
     }
     return response()->json([

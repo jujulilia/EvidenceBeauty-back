@@ -25,9 +25,9 @@ class ProfissionalFormRequestUpdate extends FormRequest
     {
         return [
             'nome' => 'required|max:120|min:5',
-            'celular' => 'required|max:11|min:10|unique:clientes,celular',
-            'email' => 'required|email|unique:clientes,email',
-            'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
+            'celular' => 'required|max:11|min:10|unique:profissionals,celular'. $this->id,
+            'email' => 'required|email|unique:profissionals,email'. $this->id,
+            'cpf' => 'required|max:11|min:11|unique:profissionals,cpf'. $this->id,
             'dataDeNascimento' => 'required|date', 
             'cidade' => 'required|max:120',
             'estado' => 'required|max:2|min:2',
@@ -37,7 +37,7 @@ class ProfissionalFormRequestUpdate extends FormRequest
             'bairro' => 'required|max:100',
             'cep' => 'required|max:8|min:8',
             'complemento' => 'max:150',
-            'senha' => 'required',
+            'senha' => '',
             'salario' => 'required|decimal:2'
         ];
     }

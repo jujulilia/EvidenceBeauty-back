@@ -24,13 +24,19 @@ class ServicoController extends Controller
             "data" => $servico
         ], 200);
 }
-
+public function retornarTodos(){
+    $servico = servico::all();
+    return response()->json([
+        'status'=> true,
+        'data'=> $servico
+    ]);
+}
 public function pesquisarPorNome(Request $request){
     $servico =  servico::where('nome', 'like', '%'. $request->nome . '%')->get();
     if(count($servico) > 0){
     return response()->json([
         'status'=> true,
-        'data '=> $servico
+        'data'=> $servico
     ]);
 }
 
@@ -45,7 +51,7 @@ public function pesquisarPorDescricao(Request $request){
     if(count($servico) > 0){
     return response()->json([
         'status'=> true,
-        'data '=> $servico
+        'data'=> $servico
     ]);
 }
 
@@ -65,7 +71,7 @@ public function pesquisarPorId($id){
     }
     return response()->json([
         'status'=> true,
-        'data '=> $servico
+        'data'=> $servico
     ]);
 }
 

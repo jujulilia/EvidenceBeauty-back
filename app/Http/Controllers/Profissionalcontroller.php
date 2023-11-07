@@ -35,12 +35,33 @@ class Profissionalcontroller extends Controller
             "data" => $profissional
         ], 200);
 }
+public function retornarTodos(){
+    $profissional = Profissional::all();
+    return response()->json([
+        'status'=> true,
+        'data'=> $profissional
+    ]);
+}
+public function pesquisarPorId($id){
+    $profissional = Profissional::find($id);
+    if($profissional == null){
+        return response()->json([
+            'status'=> false,
+            'message' => "Serviço não encontrado"
+        ]);     
+    }
+    return response()->json([
+        'status'=> true,
+        'data'=> $profissional
+    ]);
+}
+
 public function pesquisarPorNome(Request $request){
     $profissional =  Profissional::where('nome', 'like', '%'. $request->nome . '%')->get();
     if(count($profissional) > 0){
     return response()->json([
         'status'=> true,
-        'data '=> $profissional
+        'data'=> $profissional
     ]);
 }
 return response()->json([
@@ -54,7 +75,7 @@ public function pesquisarPorCpf(Request $request){
     if(count($profissional) > 0){
     return response()->json([
         'status'=> true,
-        'data '=> $profissional 
+        'data'=> $profissional 
     ]);
 }
 return response()->json([
@@ -68,7 +89,7 @@ public function pesquisarPorCelular(Request $request){
     if(count($profissional) > 0){
     return response()->json([
         'status'=> true,
-        'data '=> $profissional
+        'data'=> $profissional
     ]);
 }
 return response()->json([
@@ -82,7 +103,7 @@ public function pesquisarPorEmail(Request $request){
     if(count($profissional) > 0){
     return response()->json([
         'status'=> true,
-        'data '=> $profissional
+        'data'=> $profissional
     ]);
 }
 return response()->json([
