@@ -30,7 +30,7 @@ route::get('find/clientes/{id}', [clientecontroller::class, 'pesquisarPorId']);
 route::delete('delete/clientes/{id}', [clientecontroller::class, 'excluir']);
 route::put('update/clientes', [clientecontroller::class, 'update']);
 route::get('visualizar/clientes', [clientecontroller::class, 'retornarTodos']);
-
+Route::post('senha/clientes',[clientecontroller::class, 'redefinirSenha']);
 
 //Profissional
 route::post('profissional', [Profissionalcontroller::class, 'profissionais']);
@@ -42,6 +42,7 @@ route::get('find/profissional/{id}', [Profissionalcontroller::class, 'pesquisarP
 route::delete('delete/profissional/{id}', [Profissionalcontroller::class, 'excluir']);
 route::put('update/profissional', [Profissionalcontroller::class, 'update']);
 route::get('visualizar/profissional', [Profissionalcontroller::class, 'retornarTodos']);
+Route::post('senha/profissional',[Profissionalcontroller::class, 'redefinirSenha']);
 
 
 //Agenda

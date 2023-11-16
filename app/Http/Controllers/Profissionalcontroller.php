@@ -42,6 +42,23 @@ public function retornarTodos(){
         'data'=> $profissional
     ]);
 }
+public function redefinirSenha(Request $request){
+    $profissional = Profissional::where('email', $request->email)->first();
+    if (!isset($profissional)){
+        return response()->json([
+            'status' => false,
+            'message' => "Cliente não encontrado"
+        ]);
+    }
+
+    $profissional->senha = Hash::make($profissional->cpf);
+    $profissional->update();    
+
+    return response()->json([
+        'status' => false,
+        'message' => "Sua senha foi atualizada"
+    ]);
+}
 public function pesquisarPorId($id){
     $profissional = Profissional::find($id);
     if($profissional == null){

@@ -42,6 +42,23 @@ class clientecontroller extends Controller
             'data'=> $Cliente
         ]);
     }
+    public function redefinirSenha(Request $request){
+        $Cliente = cliente::where('email', $request->email)->first();
+        if (!isset($Cliente)){
+            return response()->json([
+                'status' => false,
+                'message' => "Cliente não encontrado"
+            ]);
+        }
+
+        $Cliente->senha = Hash::make($Cliente->cpf);
+        $Cliente->update();    
+
+        return response()->json([
+            'status' => false,
+            'message' => "Sua senha foi atualizada"
+        ]);
+    }
     public function pesquisarPorId($id){
         $Cliente = cliente::find($id);
         if($Cliente == null){
