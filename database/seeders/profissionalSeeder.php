@@ -14,22 +14,24 @@ class profissionalSeeder extends Seeder
      */
     public function run(): void
     {
+        for ($i = 0; $i < 5; $i++){
         Profissional::create([
-            'nome' => 'Teste',
-            'celular' => '1234567891',
-            'email' => 'teste@gmail.com.br',
-            'cpf' => '12345678901',
+            'nome' => 'Teste'.$i,
+            'celular' => '123456788'.$i,
+            'email' => 'teste'.$i.'@gmail.com.br',
+            'cpf' => rand(00000000001, 99999999999),
             'dataDeNascimento'=> '1111-12-11',
             'cidade'=> 'cidadeTeste',
             'estado'=> 'sp',
             'pais'=> 'brasil',
             'rua'=> 'teste',
-            'numero'=> '1222',
+            'numero'=> '122'.$i,
             'bairro'=> 'teste',
             'cep'=> '12345678',
             'complemento'=> 'teste',
             'senha' => Hash::make('123456'),
             'salario' => '12.00'
         ]);
+    }
     }
 }

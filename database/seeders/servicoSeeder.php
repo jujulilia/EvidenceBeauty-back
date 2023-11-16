@@ -13,11 +13,13 @@ class servicoSeeder extends Seeder
      */
     public function run(): void
     {
+        for ($i = 0; $i < 5; $i++){
         servico::create([
-            'nome' => 'Teste',
+            'nome' => 'Teste'.$i,
             'descricao' => 'teste',
             'duracao' => '12',
             'preco' => '12.00'
         ]);
+    }
     }
 }

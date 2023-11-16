@@ -14,21 +14,23 @@ class clienteSeeder extends Seeder
      */
     public function run(): void
     {
+        for ($i = 0; $i < 5; $i++){
         cliente::create([
-            'nome' => 'Teste',
-            'email' => 'teste@gmail.com.br',
-            'cpf' => '12345678901',
-            'celular' => '1234567890',
+            'nome' => 'Teste'.$i,
+            'email' => 'teste'.$i.'@gmail.com.br',
+            'cpf' => rand(00000000001, 99999999999),
+            'celular' => '123456789'.$i,
             'dataNascimento'=> '1111-12-11',
             'cidade'=> 'cidadeTeste',
             'estado'=> 'sp',
             'pais'=> 'brasil',
             'rua'=> 'teste',
-            'numero'=> '1222',
+            'numero'=> '122'.$i,
             'bairro'=> 'teste',
-            'cep'=> '12345678',
+            'cep'=> '19470000',
             'complemento'=> 'teste',
             'senha' => Hash::make('123456'),
         ]);
+    }
     }
 }
