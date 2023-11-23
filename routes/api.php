@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\AgendaProfissionaiscontroller;
 use App\Http\Controllers\clientecontroller;
 use App\Http\Controllers\Profissionalcontroller;
 use App\Http\Controllers\ServicoController;
@@ -50,3 +51,10 @@ route::post('agenda', [AgendaController::class, 'agenda']);
 route::delete('delete/agenda/{id}', [AgendaController::class, 'excluir']);
 route::put('update/agenda', [AgendaController::class, 'update']);
 route::get('visualizar/agenda', [AgendaController::class, 'retornarTodos']);
+
+//Agendamento Profissionais
+route::post('agendamento', [AgendaProfissionaiscontroller::class, 'cadastroAgenda']);
+route::post('nome/agendamento', [AgendaProfissionaiscontroller::class, 'pesquisarPorServico']);
+route::delete('delete/agendamento/{id}', [AgendaProfissionaiscontroller::class, 'excluir']);
+route::put('update/agendamento', [AgendaProfissionaiscontroller::class, 'update']);
+route::get('visualizar/agendamento', [AgendaProfissionaiscontroller::class, 'retornarTodos']);
