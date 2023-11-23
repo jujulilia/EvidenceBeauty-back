@@ -25,6 +25,7 @@ class AgendaController extends Controller
             "data" => $agendas
         ], 200);
 }
+
 public function retornarTodos(){
     $agendas = Agenda::all();
     return response()->json([
@@ -32,6 +33,7 @@ public function retornarTodos(){
         'data '=> $agendas
     ]);
 }
+
 public function excluir($id){
     $agendas = Agenda::find($id);
     if(!isset($agendas)){

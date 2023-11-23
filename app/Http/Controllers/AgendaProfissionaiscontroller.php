@@ -34,6 +34,21 @@ class AgendaProfissionaiscontroller extends Controller
     }
 
 
+    public function pesquisarPorId($id){
+        $agendamento = AgendaProfissionais::find($id);
+        if($agendamento == null){
+            return response()->json([
+                'status'=> false,
+                'message' => "agendamento não encontrado"
+            ]);     
+        }
+        return response()->json([
+            'status'=> true,
+            'data'=> $agendamento
+        ]);
+    }
+
+
     //pesquisar por serviço
     public function pesquisarPorServico(Request $request){
         $agendamento = AgendaProfissionais::where('servico', 'like', '%' . $request->servico . '%')->get();

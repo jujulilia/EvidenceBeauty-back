@@ -58,3 +58,4 @@ route::post('nome/agendamento', [AgendaProfissionaiscontroller::class, 'pesquisa
 route::delete('delete/agendamento/{id}', [AgendaProfissionaiscontroller::class, 'excluir']);
 route::put('update/agendamento', [AgendaProfissionaiscontroller::class, 'update']);
 route::get('visualizar/agendamento', [AgendaProfissionaiscontroller::class, 'retornarTodos']);
+route::get('find/agendamento/{id}', [AgendaProfissionaiscontroller::class, 'pesquisarPorId']);
