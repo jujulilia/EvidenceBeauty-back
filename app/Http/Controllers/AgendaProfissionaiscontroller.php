@@ -2,18 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AgendaFormRequest;
+use Carbon\Carbon;
 use App\Http\Requests\AgendaProfissionaisFormRequest;
 use App\Models\AgendaProfissionais;
+use DateTime;
+
 use Illuminate\Http\Request;
 
 class AgendaProfissionaiscontroller extends Controller
 {
 
-    public function cadastroAgenda(AgendaProfissionaisFormRequest $request){
-        $agendamento =AgendaProfissionais::create([
+    public function cadastroAgenda(AgendaProfissionaisFormRequest $request)
+    {
+        $dataHora = new DateTime($request->dataHora);
+        $dataAtual = Carbon::now('America/Sao_Paulo');
+        if ($dataHora < $dataAtual) {
+            return response()->json([
+                "success" => false,
+                "message" => "Não é possível cadastrar um horário antes do dia atual"
+            ], 400);
+        }
+
+        $agendas =AgendaProfissionais::create([
            
             'profissional_id' => $request->profissional_id,
-            'dataHora' => $request->dataHora
+            'dataHora' => $request->dataHora 
             
         ]);
         return response()->json([
@@ -22,7 +36,6 @@ class AgendaProfissionaiscontroller extends Controller
             "data" => $agendamento
         ], 200);
     }
-
 
     //visualizar todos
     public function retornarTodos(){
@@ -85,8 +98,18 @@ class AgendaProfissionaiscontroller extends Controller
 
 
     //EDITANDO O AGENDAMENTO
-    public function update(AgendaProfissionaisFormRequest $request){
+    public function update(AgendaFormRequest $request){
         $agendamento = AgendaProfissionais::find($request->id);
+
+        $dataHoraAgendamento = new DateTime($request->dataHora);
+        $dataAtual = Carbon::now('America/Sao_Paulo');
+    
+        if ($dataHoraAgendamento < $dataAtual) {
+            return response()->json([
+                "success" => false,
+                "message" => "Não é possível cadastrar um horário antes do dia atual"
+            ], 400);
+        }
     
         if(!isset($agendamento)){
             return response()->json([
