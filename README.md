@@ -6,8 +6,7 @@ Este projeto contém um site feito por estudantes da escola SESI, para aprofunda
 
 1. Clone este repositório para o seu ambiente de desenvolvimento local utilizando o comando:
 ```
- git clone https://github.com/EmyyS2/JoestarsBeauty.git
-```
+ git clone https://github.com/eduardo01322/JoestarsBeauty.git
 2. Acesse o diretório do projeto:
 ```
 cd JoestarsBeauty
@@ -17,21 +16,11 @@ cd JoestarsBeauty
 ```
 composer update
 ```
-4. Copiando o .env do exemplo
-```
 
-copy .env.example .env
-```
-
-5. Acessar o Visual Studio Code
+4. Acessar o Visual Studio Code
 ```
 code .
 ```
-
-# Insomnia
-
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https)
-
 
 ## Licença
 ```
