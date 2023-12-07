@@ -24,7 +24,7 @@ class AgendaProfissionaiscontroller extends Controller
             ], 400);
         }
 
-        $agendas =AgendaProfissionais::create([
+        $agendamento =AgendaProfissionais::create([
            
             'profissional_id' => $request->profissional_id,
             'dataHora' => $request->dataHora 
@@ -61,22 +61,35 @@ class AgendaProfissionaiscontroller extends Controller
         ]);
     }
 
-
-    //pesquisar por serviço
-    public function pesquisarPorServico(Request $request){
-        $agendamento = AgendaProfissionais::where('servico', 'like', '%' . $request->servico . '%')->get();
-        if (count($agendamento) > 0) {
-            return response()->json([
-                'status' => true,
-                'data' => $agendamento
-            ]);
-        }
+//pesquisar por data
+public function pesquisarPorAgendamento(Request $request){
+    $agendamento = AgendaProfissionais::where('profissional_id', 'like', '%' . $request->profissional_id . '%')->get();
+    if (count($agendamento) > 0) {
         return response()->json([
-            'status' => false,
-            'data' => "Servico não encontrado"
+            'status' => true,
+            'data' => $agendamento
         ]);
     }
+    return response()->json([
+        'status' => false,
+        'data' => "Servico não encontrado"
+    ]);
+}
 
+//pesquisar por Profissionais
+public function pesquisarPorProfissional(Request $request){
+    $agendamento =  AgendaProfissionais::where('profissional_id', 'like', '%'. $request->profissional_id . '%')->get();
+    if(count($agendamento) > 0){
+    return response()->json([
+        'status'=> true,
+        'data'=> $agendamento
+    ]);
+}
+return response()->json([
+    'status' => false,
+    'message' => 'não há resultados para pesquisa.'
+]);
+}
 
     //DELETANDO AGENDAMENTO 
     public function excluir($id){
