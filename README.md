@@ -19,9 +19,14 @@ cd JoestarsBeauty
 code .
 ```
 
-4. Inicializando o REpositório
+4. Inicializando o repositório
 ```
 composer update
+```
+
+5. ativar o seeder (caso você queira):
+```
+php artisan db:seed
 ```
 
 ## Licença
