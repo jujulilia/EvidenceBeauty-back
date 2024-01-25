@@ -62,3 +62,15 @@ route::post('agenda', [AgendaController::class, 'agenda']);
 route::delete('delete/agenda/{id}', [AgendaController::class, 'excluir']);
 route::put('update/agenda', [AgendaController::class, 'update']);
 route::get('visualizar/agenda', [AgendaController::class, 'retornarTodos']);
+
+//Clientes Adm
+route::post('adm/clientes', [clientecontroller::class, 'clientes']);
+route::post('adm/nome/clientes', [clientecontroller::class, 'pesquisarPorNome']);
+route::get('adm/cpf/clientes', [clientecontroller::class, 'pesquisarPorCpf']);
+route::get('adm/celular/clientes', [clientecontroller::class, 'pesquisarPorCelular']);
+route::get('adm/email/clientes', [clientecontroller::class, 'pesquisarPorEmail']);
+route::get('adm/find/clientes/{id}', [clientecontroller::class, 'pesquisarPorId']);
+route::delete('adm/delete/clientes/{id}', [clientecontroller::class, 'excluir']);
+route::put('adm/update/clientes', [clientecontroller::class, 'update']);
+route::get('adm/visualizar/clientes', [clientecontroller::class, 'retornarTodos']);
+Route::post('adm/senha/clientes',[clientecontroller::class, 'redefinirSenha']);
