@@ -12,8 +12,8 @@ class Pagamento extends Model
     protected $fillable =[
 
         'tipoDePagamento',
-        'taxa'
-    
-        ];
+        'taxa',
+        'status'
+    ];    
     
 }
