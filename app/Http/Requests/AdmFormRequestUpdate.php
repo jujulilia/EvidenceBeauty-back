@@ -6,7 +6,8 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AdmFormRequest extends FormRequest
+
+class AdmFormRequestUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +26,12 @@ class AdmFormRequest extends FormRequest
     {
         return [
             'nome' => 'required',
-            'cpf' => 'required|max:11|min:11|unique:adms,cpf',
-            'email' => 'required|email|unique:adms,email',
-            'password' => 'required',
+            'cpf' => 'required|max:11|min:11|unique:adms,cpf,'. $this->id,
+            'email' => 'required|email|unique:adms,email,'. $this->id,
+            'password' => '',
         ];
     }
+
     public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
@@ -50,8 +52,7 @@ class AdmFormRequest extends FormRequest
             'email.required' => 'o email é obrigatorio',
             'email.email' => 'formato de email invalido',
             'email.unique' => 'email ja cadastrado no sistema',
-            'password.required' => 'a senha obrigatorio'
+            'senha.required' => 'a senha obrigatorio'
         ];
     }
 }
-

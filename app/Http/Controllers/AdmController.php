@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AdmFormRequest;
 use App\Http\Requests\clienteFormRequestUpdate;
+use App\Models\Adm;
 use App\Models\cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -143,8 +144,8 @@ class controller extends Controller
         ]);
     }
     
-    public function update(admFormRequestUpdate $request){
-        $Adm = adm::find($request->id);
+    public function update(AdmFormRequest $request){
+        $Adm = Adm::find($request->id);
     
         if(!isset($Adm)){
             return response()->json([
