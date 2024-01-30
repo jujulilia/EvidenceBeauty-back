@@ -32,23 +32,20 @@ copy .env.example .env
 git config  --global user.name "jujulilia"
 git config --global user.email "jujuscosta07@gmail.com"
 ```
-7. Acessar o Visual Studio Code
-```
-code .
-```
-8. ativar o seeder (caso você queira):
+
+7. ativar o seeder (caso você queira):
 ```
 php artisan db:seed
 ```
-9. Comando
+8. Comando
 ```
 php artisan migrate
 ```
-10. Fresh
+9. Fresh
 ```
 php artisan migrate:fresh
 ```
-11. Abrir servidor
+10. Abrir servidor
 ```
 php artisan serve
 ```
