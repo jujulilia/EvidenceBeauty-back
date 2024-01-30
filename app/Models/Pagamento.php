@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Adm extends Model
+class Pagamento extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-        'nome',
-        'cpf',
-        'email',
-        'password',
+
+        'tipoDePagamento',
+        'taxa'
     
         ];
+    
 }

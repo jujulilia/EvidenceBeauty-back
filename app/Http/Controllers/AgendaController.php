@@ -50,7 +50,7 @@ public function excluir($id){
     ]);
 }
 
-public function update(AgendaFormRequest $request){
+public function atualizar(AgendaFormRequest $request){
     $agendas = Agenda::find($request->id);
 
     if(!isset($agendas)){
