@@ -6,12 +6,12 @@ Este projeto é um site feito por estudantes da escola SESI, para aprofundar seu
 
 1. Clone este repositório para o seu ambiente de desenvolvimento local utilizando o comando:
 ```
- git clone https://github.com/jujulilia/barbearia-back.git
+ git clone https://github.com/jujulilia/EvidenceBeauty-back.git
  ```
 
 2. Acesse o diretório do projeto:
 ```
-cd barbearia-back
+cd EvidenceBeauty-back
 ```
 
 3. Acessar o Visual Studio Code
